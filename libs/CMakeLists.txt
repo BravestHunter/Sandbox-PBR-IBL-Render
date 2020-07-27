@@ -8,3 +8,5 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/glfw)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/glm)
+
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/assimp)

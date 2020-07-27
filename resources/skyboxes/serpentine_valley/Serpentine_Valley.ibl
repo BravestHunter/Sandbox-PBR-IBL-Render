@@ -1,0 +1,45 @@
+[Header]
+ICOfile = "Serpentine_Valley_Thumb.jpg"
+PREVIEWfile = "Serpentine_Valley_preview.jpg"
+Name = "Serpentine Valley"
+Author = "Blochi"
+Location = "Utah"
+Comment = "High noon above the Canyonlands, blue sky, vista point"
+GEOlat = 38.2602889603919250
+GEOlong = -109.6957397460937500
+Date = "2009:11:30"
+Time = "11:45:00"
+North = 34.736843
+Height = 5.000000
+
+[Background]
+BGfile = "Serpentine_Valley_8k.jpg"
+BGmap = 1
+BGu = 0.000000
+BGv = 0.000000
+BGheight = 4000
+
+[Enviroment]
+EVfile = "Serpentine_Valley_Env.hdr"
+EVmap = 1
+EVu = 0.000000
+EVv = 0.000000
+EVheight = 180
+EVmulti = 1.000000
+EVgamma = 1.700000
+
+[Reflection]
+REFfile = "Serpentine_Valley_3k.hdr"
+REFmap = 1
+REFu = 0.000000
+REFv = 0.000000
+REFheight = 1600
+REFmulti = 1.000000
+REFgamma = 1.700000
+
+[Sun]
+SUNcolor = 254,239,205
+SUNmulti = 1.200000
+SUNu = 0.716000
+SUNv = 0.328000
+

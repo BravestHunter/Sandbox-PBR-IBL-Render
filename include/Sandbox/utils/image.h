@@ -1,15 +1,24 @@
 #pragma once
 
-#include <stdint.h>
+#include <vector>
 
 namespace sandbox_utils
 {
   struct Image
   {
-   public:
-    unsigned char *data_;
-    int width_;
-    int height_;
-    uint8_t channels_;
+    std::vector<unsigned char> data;
+    int width;
+    int height;
+    int channels;
+    int channel_bits;
+  };
+
+  struct FloatImage
+  {
+    std::vector<float> data;
+    int width;
+    int height;
+    int channels;
+    int channel_bits;
   };
 }

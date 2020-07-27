@@ -2,7 +2,8 @@
 
 #include <fstream>
 
-#include <SOIL.h>
+//#include <SOIL.h>
+#include "stb_image.h"
 
 namespace sandbox_file
 {
@@ -96,19 +97,33 @@ namespace sandbox_file
     return sandbox_utils::OperationResult::SUCCESS;
   }
 
-  sandbox_utils::OperationResult SandboxFileManager::LoadImage(const std::string path, sandbox_utils::Image &image)
+  sandbox_utils::OperationResult SandboxFileManager::LoadImage(const std::string path, sandbox_utils::Image &image, bool flip)
   {
+    unsigned char *image_data;
     try
     {
+      stbi_set_flip_vertically_on_load(flip);
+
       int channels;
-      image.data_ = SOIL_load_image(path.c_str(), &image.width_, &image.height_, &channels, SOIL_LOAD_AUTO);
-      image.channels_ = channels;
+      image_data = stbi_load(path.c_str(), &image.width, &image.height, &channels, 0);
+      if (!image_data)
+      {
+        return sandbox_utils::OperationResult::FAILURE;
+      }
+
+      int size = image.width * image.height * channels;
+      image.data = std::vector<unsigned char>(size);
+      memcpy(&image.data.at(0), image_data, size);
+      image.channels = channels;
+
+      stbi_image_free(image_data);
+      stbi_set_flip_vertically_on_load(false);
     }
     catch (...)
     {
       // log error
 
-      SOIL_free_image_data(image.data_);
+      //stbi_image_free(image_data);
 
       return sandbox_utils::OperationResult::FAILURE;
     }
@@ -116,19 +131,37 @@ namespace sandbox_file
     return sandbox_utils::OperationResult::SUCCESS;
   }
 
-  sandbox_utils::OperationResult SandboxFileManager::FreeImage(sandbox_utils::Image &image)
+  sandbox_utils::OperationResult SandboxFileManager::LoadFloatImage(const std::string path, sandbox_utils::FloatImage &image, bool flip)
   {
+    float *image_data;
     try
     {
-      // log error
+      stbi_set_flip_vertically_on_load(flip);
 
-      SOIL_free_image_data(image.data_);
+      int channels;
+      image_data = stbi_loadf(path.c_str(), &image.width, &image.height, &channels, 0);
+      if (!image_data)
+      {
+        return sandbox_utils::OperationResult::FAILURE;
+      }
+
+      int size = image.width * image.height * channels * sizeof(float);
+      image.data = std::vector<float>(size);
+      memcpy(&image.data.at(0), image_data, size);
+      image.channels = channels;
+
+      stbi_image_free(image_data);
+      stbi_set_flip_vertically_on_load(false);
     }
     catch (...)
     {
+      // log error
+
+      //stbi_image_free(image_data);
+
       return sandbox_utils::OperationResult::FAILURE;
     }
-    
+
     return sandbox_utils::OperationResult::SUCCESS;
   }
 }

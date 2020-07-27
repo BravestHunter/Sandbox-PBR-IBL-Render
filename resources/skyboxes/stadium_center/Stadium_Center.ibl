@@ -1,0 +1,45 @@
+[Header]
+ICOfile = "Stadium_Center_thumb.jpg"
+PREVIEWfile = "Stadium_Center_preview.jpg"
+Name = "Stadium Center"
+Author = "Blochi"
+Location = "Halle"
+Comment = "Football or soccer stadium on a bright summer day."
+GEOlat = 51.4647293091666710
+GEOlong = 11.9621295927777760
+Link = "http://www.hdrlabs.com/sibl/archive.html"
+Date = "2009:08:04"
+Time = "13:55:00"
+Height = 1.8
+
+[Background]
+BGfile = "Stadium_Center_8k.jpg"
+BGmap = 1
+BGu = 0.000000
+BGv = 0.000000
+BGheight = 4096
+
+[Enviroment]
+EVfile = "Stadium_Center_Env.hdr"
+EVmap = 1
+EVu = 0.000000
+EVv = 0.000000
+EVheight = 180
+EVmulti = 1.000000
+EVgamma = 2.000000
+
+[Reflection]
+REFfile = "Stadium_Center_3k.hdr"
+REFmap = 1
+REFu = 0.000000
+REFv = 0.000000
+REFheight = 1600
+REFmulti = 1.000000
+REFgamma = 2.000000
+
+[Sun]
+SUNcolor = 255,254,253
+SUNmulti = 1.200000
+SUNu = 0.348000
+SUNv = 0.208000
+
