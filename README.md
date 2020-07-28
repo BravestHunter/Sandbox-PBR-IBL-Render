@@ -15,8 +15,14 @@ In this project I also would like to find out a good balance between flexibility
 * Some weird architecture
 
 ## Screenshots
-![](https://i.ibb.co/7Q9NVQT/13-1.png)
+![](https://i.ibb.co/7Q9NVQT/13-1.png)  
 [Link](https://sketchfab.com/3d-models/material-ball-in-3d-coat-a6bdf1d11d714e07b9dd99dda02de965) to original model.
  
 ![](https://i.ibb.co/b7Ys6Nx/10-3.png)
 ![](https://i.ibb.co/JFDj7pD/5-1.png)
+
+## How to build
+#### Windows, VS
+```
+$ CMake -G "Visual Studio 16 2019"
+```
