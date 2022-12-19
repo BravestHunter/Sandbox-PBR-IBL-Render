@@ -1,5 +1,7 @@
 #include <Sandbox/common/graphics/opengl/opengl_shader.h>
 
+#include <GL/glew.h>
+
 #include "Sandbox/file/file_manager_provider.h"
 
 namespace sandbox_common {
@@ -124,7 +126,7 @@ namespace sandbox_common {
     glUniformMatrix4fv(glGetUniformLocation(id_, name.c_str()), 1, GL_FALSE, &mat[0][0]);
   }
 
-  void OpenglShader::CheckCompileErrors(GLuint shader, std::string type)
+  void OpenglShader::CheckCompileErrors(unsigned int shader, std::string type)
   {
     GLint success;
     GLchar infoLog[1024];

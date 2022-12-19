@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 
   system("cls");
 
-  std::cout << "Use wasd-keys, mouse movement and mouse buttons and to control camera." << std::endl;
+  std::cout << "Use wasd-keys, mouse movement and mouse buttons to control camera." << std::endl;
   std::cout << "Use Key1 to change polygon mode (scenes 3-12)." << std::endl;
   std::cout << "Use Key2 to on/off point lights (scenes 3-12)." << std::endl;
   std::cout << "Use num-keys(7-9, 4-6, 8-2) to wrap model (scenes 3-12)." << std::endl;

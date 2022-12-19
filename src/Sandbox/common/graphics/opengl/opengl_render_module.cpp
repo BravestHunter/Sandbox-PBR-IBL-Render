@@ -2,8 +2,8 @@
 
 #include <tuple>
 
-#define GLEW_STATIC
 #include <GL/glew.h>
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -50,6 +50,7 @@ namespace sandbox_common
   {
     if (parent_.expired())
       return;
+
     std::shared_ptr<SceneModule> scene = std::static_pointer_cast<SceneModule>(parent_.lock());
 
     std::weak_ptr<sandbox_platform::IPlatformWindow> window = sandbox_platform::PlatformProvider::GetPlatform()->GetPlatformWindow();
@@ -75,19 +76,18 @@ namespace sandbox_common
     
     if (use_point_lights)
     {
-      auto opengl_point_lights_info = scene->GetComponents<sandbox_graphics::PointLight>();
-      if (std::get<2>(opengl_point_lights_info) == sandbox_utils::OperationResult::SUCCESS)
+      ComponentStorage<sandbox_graphics::PointLight>::StorageItem<sandbox_graphics::PointLight>* light_components_ref = nullptr;
+      size_t light_component_count;
+      if (scene->GetComponents<sandbox_graphics::PointLight>(&light_components_ref, &light_component_count) == sandbox_utils::OperationResult::SUCCESS)
       {
-        auto point_light_ref = std::get<0>(opengl_point_lights_info);
-        size_t point_lights_count = std::get<1>(opengl_point_lights_info);
-        for (size_t i = 0; i < point_lights_count; i++)
+        for (size_t i = 0; i < light_component_count; i++)
         {
-          if (point_light_ref->exist)
+          if (light_components_ref->exist)
           {
-            model_shader_.SetVec3("POINT_LIGHTS[" + std::to_string(i) + "].position", point_light_ref->data.position);
-            model_shader_.SetVec3("POINT_LIGHTS[" + std::to_string(i) + "].color", point_light_ref->data.color);
+            model_shader_.SetVec3("POINT_LIGHTS[" + std::to_string(i) + "].position", light_components_ref->data.position);
+            model_shader_.SetVec3("POINT_LIGHTS[" + std::to_string(i) + "].color", light_components_ref->data.color);
           }
-          point_light_ref++;
+          light_components_ref++;
         }
       }
     }
@@ -98,24 +98,25 @@ namespace sandbox_common
     }
     
     // load models
-    auto opengl_models_info = scene->GetComponents<OpenglModelComponent>();
-    auto model_component_ref = std::get<0>(opengl_models_info);
-    size_t model_count = std::get<1>(opengl_models_info);
+    ComponentStorage<OpenglModelComponent>::StorageItem<OpenglModelComponent>* gl_model_components_ref = nullptr;
+    size_t gl_model_component_count;
+    sandbox_utils::OperationResult load_models_result = scene->GetComponents<OpenglModelComponent>(&gl_model_components_ref, &gl_model_component_count);
+
     // draw non transparent meshes
-    if (std::get<2>(opengl_models_info) == sandbox_utils::OperationResult::SUCCESS)
+    if (load_models_result == sandbox_utils::OperationResult::SUCCESS)
     {
-      for (size_t i = 0; i < model_count; i++)
+      for (size_t i = 0; i < gl_model_component_count; i++)
       {
-        if (model_component_ref->exist)
+        if (gl_model_components_ref->exist)
         {
-          glm::mat4 translate = glm::translate(glm::mat4(1.0), model_component_ref->data.transformation.position);
-          glm::mat4 rotate = glm::toMat4(model_component_ref->data.transformation.rotation);  
-          glm::mat4 scale = glm::scale(glm::mat4(1.0), model_component_ref->data.transformation.scale);
+          glm::mat4 translate = glm::translate(glm::mat4(1.0), gl_model_components_ref->data.transformation.position);
+          glm::mat4 rotate = glm::toMat4(gl_model_components_ref->data.transformation.rotation);
+          glm::mat4 scale = glm::scale(glm::mat4(1.0), gl_model_components_ref->data.transformation.scale);
     
           model_shader_.SetMat4("MODEL", translate * rotate * scale);
-          DrawModel(model_component_ref->data.model, false);
+          DrawModel(gl_model_components_ref->data.model, false);
         }
-        model_component_ref++;
+        gl_model_components_ref++;
       }
     }
     
@@ -133,21 +134,21 @@ namespace sandbox_common
 
     // draw transparent meshes
     model_shader_.Use();
-    if (std::get<2>(opengl_models_info) == sandbox_utils::OperationResult::SUCCESS)
+    if (load_models_result == sandbox_utils::OperationResult::SUCCESS)
     {
-      model_component_ref -= model_count;
-      for (size_t i = 0; i < model_count; i++)
+      gl_model_components_ref -= gl_model_component_count;
+      for (size_t i = 0; i < gl_model_component_count; i++)
       {
-        if (model_component_ref->exist)
+        if (gl_model_components_ref->exist)
         {
-          glm::mat4 translate = glm::translate(glm::mat4(1.0), model_component_ref->data.transformation.position);
-          glm::mat4 rotate = glm::toMat4(model_component_ref->data.transformation.rotation);   
-          glm::mat4 scale = glm::scale(glm::mat4(1.0), model_component_ref->data.transformation.scale);
+          glm::mat4 translate = glm::translate(glm::mat4(1.0), gl_model_components_ref->data.transformation.position);
+          glm::mat4 rotate = glm::toMat4(gl_model_components_ref->data.transformation.rotation);
+          glm::mat4 scale = glm::scale(glm::mat4(1.0), gl_model_components_ref->data.transformation.scale);
     
           model_shader_.SetMat4("MODEL", translate * rotate * scale);
-          DrawModel(model_component_ref->data.model, true);
+          DrawModel(gl_model_components_ref->data.model, true);
         }
-        model_component_ref++;
+        gl_model_components_ref++;
       }
     }
 

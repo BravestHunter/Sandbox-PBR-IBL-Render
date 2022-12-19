@@ -2,8 +2,6 @@
 
 #include <string>
 
-#define GLEW_STATIC
-#include <GL/glew.h>
 #include <glm/glm.hpp>
 
 namespace sandbox_common {
@@ -33,6 +31,6 @@ namespace sandbox_common {
    private:
     unsigned int id_;
 
-    void CheckCompileErrors(GLuint shader, std::string type);
+    void CheckCompileErrors(unsigned int shader, std::string type);
   };
 }

@@ -5,8 +5,8 @@
 #include <map>
 #include <vector>
 
-#define GLEW_STATIC
 #include <GL/glew.h>
+
 #include <GLFW/glfw3.h>
 
 #include <glm/glm.hpp>
@@ -22,12 +22,9 @@
 #include "Sandbox/common/i_module.h"
 #include "Sandbox/common/sandbox_engine.h"
 #include "Sandbox/common/scene/scene_module.h"
-#include "Sandbox/common/graphics/sandbox_graphics_module.h"
 #include "Sandbox/common/graphics/sandbox_camera_movement_module.h"
 
-#include "Sandbox/common/graphics/sandbox_graphics_component.h"
 #include "Sandbox/common/graphics/opengl/opengl_render_module.h"
-#include "Sandbox/common/graphics/mesh.h"
 
 #include "Sandbox/common/graphics/opengl/opengl_model_component.h"
 #include "Sandbox/graphics/graphics_model.h"

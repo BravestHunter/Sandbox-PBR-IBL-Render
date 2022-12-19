@@ -23,17 +23,17 @@ file(GLOB_RECURSE OBJECT_RESOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/*.
 add_library(SandboxEngine STATIC ${ENGINE_CPP_FILES} ${ENGINE_HEADER_FILES})
 add_executable(SandboxEngineExample ${EXAMPLE_CPP_FILES} ${EXAMPLE_HEADER_FILES})
 
-target_link_libraries(SandboxEngineExample ${OPENGL_LIBRARY})
+add_compile_definitions(GLEW_STATIC)
+
+target_link_libraries(SandboxEngine ${OPENGL_LIBRARY})
 target_link_libraries(SandboxEngine glfw)
 target_link_libraries(SandboxEngine glm)
-target_link_libraries(SandboxEngine assimp)
 target_link_libraries(SandboxEngine ${CMAKE_CURRENT_SOURCE_DIR}/libs/glew/lib/glew32s.lib)
 target_link_libraries(SandboxEngine ${CMAKE_CURRENT_SOURCE_DIR}/libs/soil/lib/soil.lib)
 
 target_link_libraries(SandboxEngineExample ${OPENGL_LIBRARY})
 target_link_libraries(SandboxEngineExample glfw)
 target_link_libraries(SandboxEngineExample glm)
-target_link_libraries(SandboxEngineExample assimp)
 target_link_libraries(SandboxEngineExample ${CMAKE_CURRENT_SOURCE_DIR}/libs/glew/lib/glew32s.lib)
 target_link_libraries(SandboxEngineExample ${CMAKE_CURRENT_SOURCE_DIR}/libs/soil/lib/soil.lib)
 target_link_libraries(SandboxEngineExample SandboxEngine)

@@ -64,16 +64,19 @@ namespace sandbox_common
     }
 
     template<typename T>
-    std::tuple<ComponentStorage<T>::StorageItem<T>*, size_t, sandbox_utils::OperationResult> GetComponents()
+    sandbox_utils::OperationResult GetComponents(ComponentStorage<T>::StorageItem<T>** componentsRef, size_t* components_count)
     {
       ComponentType type = typeid(T).hash_code();
       if (registered_components_.find(type) == registered_components_.end())
       {
-        ComponentStorage<T>::StorageItem<T> *ptr(0);
-        return std::make_tuple(ptr, 0, sandbox_utils::OperationResult::FAILURE);
+        return sandbox_utils::OperationResult::FAILURE;
       }
 
-      return GetComponentStorage<T>(type)->GetComponents();
+      std::tuple<ComponentStorage<T>::StorageItem<T>*, size_t, sandbox_utils::OperationResult> result = GetComponentStorage<T>(type)->GetComponents();
+      *componentsRef = std::get<0>(result);
+      *components_count = std::get<1>(result);
+
+      return std::get<2>(result);
     }
 
     template<typename T>

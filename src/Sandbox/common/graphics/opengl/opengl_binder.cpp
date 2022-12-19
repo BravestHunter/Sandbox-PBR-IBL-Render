@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#define GLEW_STATIC
 #include <GL/glew.h>
+
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "Sandbox/file/file_manager_provider.h"
