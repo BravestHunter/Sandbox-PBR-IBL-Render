@@ -1,5 +1,5 @@
 # Sandbox
-Sandbox is 3D game engine. It's my first experience in computer graphics so far.
+Sandbox is 3D rendering engine. It's my first experience in computer graphics so far.
 
 ![](screenshots/duck.png)
 
