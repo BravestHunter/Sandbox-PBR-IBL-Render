@@ -1,0 +1,17 @@
+#define SHADERS_DIR "@SHADERS_DIR@/"
+#define MODELS_DIR "@MODELS_DIR@/"
+#define SKYBOXES_DIR "@SKYBOXES_DIR@/"
+
+#define MODEL_VERTEX_SHADER "model.vs"
+#define MODEL_FRAGMENT_SHADER "model.fs"
+
+#define SKYBOX_VERTEX_SHADER "skybox.vs"
+#define SKYBOX_FRAGMENT_SHADER "skybox.fs"
+
+#define BRDF_VERTEX_SHADER "brdf.vs"
+#define BRDF_FRAGMENT_SHADER "brdf.fs"
+
+#define CUBEMAP_VERTEX_SHADER "cubemap.vs"
+#define EQUIRECTANGULA_TO_CUBEMAP_FRAGMENT_SHADER "equirectangular_to_cubemap.fs"
+#define IRRADIANCE_CONVOLUITION_FRAGMENT_SHADER "irradiance_convolution.fs"
+#define PREFILTER_FRAGMENT_SHADER "prefilter.fs"

@@ -1,5 +1,12 @@
 #include "Sandbox/common/graphics/opengl/opengl_render_module.h"
 
+#define STRINGIZE_NX(A) #A
+#define STRINGIZE(A) STRINGIZE_NX(A)
+#define PPCAT_NX(A, B) A ## B
+#define PPCAT(A, B) PPCAT_NX(A, B)
+
+#include "resourceConfig.h"
+
 #include <tuple>
 
 #include <GL/glew.h>
@@ -35,8 +42,8 @@ namespace sandbox_common
 
     camera_ = std::make_shared<Camera>(glm::vec3(0.0f, 0.0f, 10.0f));
 
-    model_shader_ = OpenglShader(RESOURCE_DIRECTORY + std::string("resources/shaders/model.vs"), RESOURCE_DIRECTORY + std::string("resources/shaders/model.fs"));
-    skybox_shader_ = OpenglShader(RESOURCE_DIRECTORY + std::string("resources/shaders/skybox.vs"), RESOURCE_DIRECTORY + std::string("resources/shaders/skybox.fs"));
+    model_shader_ = OpenglShader(PPCAT(SHADERS_DIR, MODEL_VERTEX_SHADER), PPCAT(SHADERS_DIR, MODEL_FRAGMENT_SHADER));
+    skybox_shader_ = OpenglShader(PPCAT(SHADERS_DIR, SKYBOX_VERTEX_SHADER), PPCAT(SHADERS_DIR, SKYBOX_FRAGMENT_SHADER));
 
     is_constructed_ = true;
   }

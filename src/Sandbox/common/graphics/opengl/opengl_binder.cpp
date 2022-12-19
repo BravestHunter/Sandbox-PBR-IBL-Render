@@ -1,5 +1,10 @@
 #include "Sandbox/common/graphics/opengl/opengl_binder.h"
 
+#define PPCAT_NX(A, B) A ## B
+#define PPCAT(A, B) PPCAT_NX(A, B)
+
+#include "resourceConfig.h"
+
 #include <vector>
 
 #include <GL/glew.h>
@@ -96,10 +101,10 @@ namespace sandbox_common
     sandbox_graphics::Mesh mesh = sandbox_graphics::BasicMeshes::ReversedCube();
     BindMesh(mesh, skybox.cube_mesh);
 
-    OpenglShader equirectangularToCubemapShader(RESOURCE_DIRECTORY + std::string("resources/shaders/cubemap.vs"), RESOURCE_DIRECTORY + std::string("resources/shaders/equirectangular_to_cubemap.fs"));
-    OpenglShader irradianceShader(RESOURCE_DIRECTORY + std::string("resources/shaders/cubemap.vs"), RESOURCE_DIRECTORY + std::string("resources/shaders/irradiance_convolution.fs"));
-    OpenglShader prefilterShader(RESOURCE_DIRECTORY + std::string("resources/shaders/cubemap.vs"), RESOURCE_DIRECTORY + std::string("resources/shaders/prefilter.fs"));
-    OpenglShader brdfShader(RESOURCE_DIRECTORY + std::string("resources/shaders/brdf.vs"), RESOURCE_DIRECTORY + std::string("resources/shaders/brdf.fs"));
+    OpenglShader equirectangularToCubemapShader(PPCAT(SHADERS_DIR, CUBEMAP_VERTEX_SHADER), PPCAT(SHADERS_DIR, EQUIRECTANGULA_TO_CUBEMAP_FRAGMENT_SHADER));
+    OpenglShader irradianceShader(PPCAT(SHADERS_DIR, CUBEMAP_VERTEX_SHADER), PPCAT(SHADERS_DIR, IRRADIANCE_CONVOLUITION_FRAGMENT_SHADER));
+    OpenglShader prefilterShader(PPCAT(SHADERS_DIR, CUBEMAP_VERTEX_SHADER), PPCAT(SHADERS_DIR, PREFILTER_FRAGMENT_SHADER));
+    OpenglShader brdfShader(PPCAT(SHADERS_DIR, BRDF_VERTEX_SHADER), PPCAT(SHADERS_DIR, BRDF_FRAGMENT_SHADER));
 
     // load hdr image
     sandbox_utils::FloatImage skybox_image;
