@@ -217,7 +217,7 @@ int GraphicsApplication::RunExample3(int width, int height)
   sandbox_common::OpenglBinder::BindModel(opengl_avocado_model, avocado_model);
   sandbox_common::OpenglBinder::BindModel(opengl_box_model, box_model);
   sandbox_common::OpenglHdrSkybox skybox;
-  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(MODELS_DIR) + std::string("resources/skyboxes/stadium_center/Stadium_Center_3k.hdr"));
+  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(SKYBOXES_DIR) + std::string("stadium_center/Stadium_Center_3k.hdr"));
 
   sandbox_common::Entity axis_entity;
   sandbox_common::Entity skybox_ent;
@@ -315,7 +315,7 @@ int GraphicsApplication::RunExample4(int width, int height)
   sandbox_common::OpenglBinder::BindModel(opengl_fish_model, fish_model);
   sandbox_common::OpenglBinder::BindModel(opengl_box_model, box_model);
   sandbox_common::OpenglHdrSkybox skybox;
-  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(MODELS_DIR) + std::string("resources/skyboxes/malibu_overlook/Malibu_Overlook_3k.hdr"));
+  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(SKYBOXES_DIR) + std::string("malibu_overlook/Malibu_Overlook_3k.hdr"));
 
   sandbox_common::Entity axis_ent;
   sandbox_common::Entity skybox_ent;
@@ -413,7 +413,7 @@ int GraphicsApplication::RunExample5(int width, int height)
   sandbox_common::OpenglBinder::BindModel(opengl_helmet_model, helmet_model);
   sandbox_common::OpenglBinder::BindModel(opengl_box_model, box_model);
   sandbox_common::OpenglHdrSkybox skybox;
-  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(MODELS_DIR) + std::string("resources/skyboxes/milkyway/Milkyway_small.hdr"));
+  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(SKYBOXES_DIR) + std::string("milkyway/Milkyway_small.hdr"));
 
   sandbox_common::Entity axis_ent;
   sandbox_common::Entity skybox_ent;
@@ -511,7 +511,7 @@ int GraphicsApplication::RunExample6(int width, int height)
   sandbox_common::OpenglBinder::BindModel(opengl_helmet_model, helmet_model);
   sandbox_common::OpenglBinder::BindModel(opengl_box_model, box_model);
   sandbox_common::OpenglHdrSkybox skybox;
-  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(MODELS_DIR) + std::string("resources/skyboxes/serpentine_valley/Serpentine_Valley_3k.hdr"));
+  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(SKYBOXES_DIR) + std::string("serpentine_valley/Serpentine_Valley_3k.hdr"));
 
   sandbox_common::Entity axes_ent;
   sandbox_common::Entity skybox_ent;
@@ -609,7 +609,7 @@ int GraphicsApplication::RunExample7(int width, int height)
   sandbox_common::OpenglBinder::BindModel(opengl_lantern_model, lantern_model);
   sandbox_common::OpenglBinder::BindModel(opengl_box_model, box_model);
   sandbox_common::OpenglHdrSkybox skybox;
-  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(MODELS_DIR) + std::string("resources/skyboxes/subway_lights/20_Subway_Lights_3k.hdr"));
+  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(SKYBOXES_DIR) + std::string("subway_lights/20_Subway_Lights_3k.hdr"));
 
   sandbox_common::Entity axis_ent;
   sandbox_common::Entity skybox_ent;
@@ -707,7 +707,7 @@ int GraphicsApplication::RunExample8(int width, int height)
   sandbox_common::OpenglBinder::BindModel(opengl_spheres_model, spheres_model);
   sandbox_common::OpenglBinder::BindModel(opengl_box_model, box_model);
   sandbox_common::OpenglHdrSkybox skybox;
-  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(MODELS_DIR) + std::string("resources/skyboxes/helipad_afternoon/LA_Downtown_Afternoon_Fishing_3k.hdr"));
+  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(SKYBOXES_DIR) + std::string("helipad_afternoon/LA_Downtown_Afternoon_Fishing_3k.hdr"));
 
   sandbox_common::Entity axes_ent;
   sandbox_common::Entity skybox_ent;
@@ -810,7 +810,7 @@ int GraphicsApplication::RunExample9(int width, int height)
   sandbox_common::OpenglBinder::BindModel(opengl_spheres_model, spheres_model);
   sandbox_common::OpenglBinder::BindModel(opengl_box_model, box_model);
   sandbox_common::OpenglHdrSkybox skybox;
-  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(MODELS_DIR) + std::string("resources/skyboxes/helipad_afternoon/LA_Downtown_Afternoon_Fishing_3k.hdr"));
+  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(SKYBOXES_DIR) + std::string("helipad_afternoon/LA_Downtown_Afternoon_Fishing_3k.hdr"));
 
   sandbox_common::Entity axes_ent;
   sandbox_common::Entity skybox_ent;
@@ -908,7 +908,7 @@ int GraphicsApplication::RunExample10(int width, int height)
   sandbox_common::OpenglBinder::BindModel(opengl_lantern_model, lantern_model);
   sandbox_common::OpenglBinder::BindModel(opengl_box_model, box_model);
   sandbox_common::OpenglHdrSkybox skybox;
-  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(MODELS_DIR) + std::string("resources/skyboxes/stadium_center/Stadium_Center_3k.hdr"));
+  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(SKYBOXES_DIR) + std::string("stadium_center/Stadium_Center_3k.hdr"));
 
   sandbox_common::Entity axis_ent;
   sandbox_common::Entity skybox_ent;
@@ -1006,7 +1006,7 @@ int GraphicsApplication::RunExample11(int width, int height)
   sandbox_common::OpenglBinder::BindModel(opengl_lantern_model, lantern_model);
   sandbox_common::OpenglBinder::BindModel(opengl_box_model, box_model);
   sandbox_common::OpenglHdrSkybox skybox;
-  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(MODELS_DIR) + std::string("resources/skyboxes/stadium_center/Stadium_Center_3k.hdr"));
+  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(SKYBOXES_DIR) + std::string("stadium_center/Stadium_Center_3k.hdr"));
 
   sandbox_common::Entity axis_ent;
   sandbox_common::Entity skybox_ent;
@@ -1104,7 +1104,7 @@ int GraphicsApplication::RunExample12(int width, int height)
   sandbox_common::OpenglBinder::BindModel(opengl_lantern_model, lantern_model);
   sandbox_common::OpenglBinder::BindModel(opengl_box_model, box_model);
   sandbox_common::OpenglHdrSkybox skybox;
-  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(MODELS_DIR) + std::string("resources/skyboxes/stadium_center/Stadium_Center_3k.hdr"));
+  sandbox_common::OpenglBinder::BindHdrSkybox(skybox, std::string(SKYBOXES_DIR) + std::string("stadium_center/Stadium_Center_3k.hdr"));
 
   sandbox_common::Entity axis_ent;
   sandbox_common::Entity skybox_ent;
