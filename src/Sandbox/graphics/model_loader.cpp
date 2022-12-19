@@ -287,9 +287,9 @@ namespace sandbox_graphics
       size_t triangles_count = mesh.vertices.size() / 3;
       for (size_t i = 0; i < triangles_count; i++)
       {
-        Vertex &vertex1 = mesh.vertices[mesh.indices[i * 3]];
-        Vertex &vertex2 = mesh.vertices[mesh.indices[i * 3 + 1]];
-        Vertex &vertex3 = mesh.vertices[mesh.indices[i * 3 + 2]];
+        Vertex &vertex1 = mesh.vertices[i * 3 + 0];
+        Vertex &vertex2 = mesh.vertices[i * 3 + 1];
+        Vertex &vertex3 = mesh.vertices[i * 3 + 2];
 
         ModelLoader::GenerateTangent(vertex1, vertex2, vertex3);
       }
